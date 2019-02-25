@@ -82,13 +82,7 @@ class _ContactPageState extends State<ContactPage> {
                                 : AssetImage("images/placeholder.png")),
                       )),
                 onTap: (){
-
-                    ImagePicker.pickImage(source: ImageSource.camera).then((file){
-                      if(file == null) return;
-                     setState(() {
-                       _editedContact.img = file.path;
-                     });
-                    });
+                    _optionsDialogBox();
 
                 },
               ),
@@ -160,6 +154,53 @@ class _ContactPageState extends State<ContactPage> {
     } else {
       return Future.value(true);
     }
+  }
+
+  Future<void> _optionsDialogBox() {
+    return showDialog(context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: new SingleChildScrollView(
+              child: new ListBody(
+                children: <Widget>[
+                  GestureDetector(
+                    child: new Text('Take a picture'),
+                    onTap: openCamera,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                  ),
+                  GestureDetector(
+                    child: new Text('Select from gallery'),
+                    onTap: openGallery,
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+
+  void openCamera() async{
+    ImagePicker.pickImage(source: ImageSource.camera).then((file){
+      if(file == null) return;
+      setState(() {
+        _editedContact.img = file.path;
+        Navigator.pop(context);
+      });
+    });
+  }
+
+
+  void openGallery()async {
+    ImagePicker.pickImage(source: ImageSource.gallery).then((file){
+      if(file == null) return;
+      setState(() {
+        _editedContact.img = file.path;
+        Navigator.pop(context);
+      });
+    });
   }
 }
 

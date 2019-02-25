@@ -17,9 +17,13 @@ CRUD SQLite - App Agenda
 
 ![delete](https://user-images.githubusercontent.com/39272194/53268126-006acd00-36c4-11e9-9302-267d565c5f2a.gif)
 
-# CHANGE AVATAR
+# CHANGE AVATAR (PHOTO)
 
 ![updatephoto](https://user-images.githubusercontent.com/39272194/53268133-0660ae00-36c4-11e9-9e75-4490323e4be2.gif)
+
+# CHANGE AVATAR (GALLERY)
+
+![galeria](https://user-images.githubusercontent.com/39272194/53362183-5afc6700-3918-11e9-8154-136df98aaff1.gif)
 
 # ORDER AZ - ZA
 
